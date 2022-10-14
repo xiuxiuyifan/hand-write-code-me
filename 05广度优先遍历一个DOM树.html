@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <p>hello<b>world</b></p>
+      <img
+        src="https://pics3.baidu.com/feed/d52a2834349b033beb22e6c67cd03bd8d539bd29.jpeg@f_auto?token=f845475c9d7baddf279cc3b45ec110fb"
+        alt=""
+      />
+      <!--注释-->
+      <ul>
+        <li>a</li>
+        <li>b</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // 利用队列类辅助实现
+
+    function visit(root) {
+      // 文本节点
+      if (root instanceof Text) {
+        let t = root.textContent.trim();
+        if (t) {
+          console.log(`text --- ${t}`);
+        }
+      }
+      // 注释节点
+      if (root instanceof Comment) {
+        console.log(`comment --- ${root.textContent.trim()}`);
+      }
+      if (root instanceof HTMLElement) {
+        console.log(`htmlElement --- ${root.nodeName.toLowerCase()}`);
+      }
+    }
+
+    function breadthFirstTraverse(root) {
+      // 先申请一个队列
+      let queue = [];
+
+      // 把根节点加入到队列中
+      queue.push(root);
+
+      // 循环终止的条件就是当队列中没有元素的时候
+      while (queue.length) {
+        // 取出队头元素
+        let head = queue.shift();
+        // 访问它
+        visit(head);
+        // 取出子节点
+        let childNodes = head.childNodes;
+        // 如果有孩子就把孩子也加入到队列里面
+        childNodes.forEach((node) => {
+          queue.push(node);
+        });
+      }
+    }
+    breadthFirstTraverse(document.getElementById("root"));
+  </script>
+</html>

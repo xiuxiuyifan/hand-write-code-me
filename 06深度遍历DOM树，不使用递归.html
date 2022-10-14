@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <p>hello<b>world</b></p>
+      <img
+        src="https://pics3.baidu.com/feed/d52a2834349b033beb22e6c67cd03bd8d539bd29.jpeg@f_auto?token=f845475c9d7baddf279cc3b45ec110fb"
+        alt=""
+      />
+      <!--注释-->
+      <ul>
+        <li>a</li>
+        <li>b</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    function visit(root) {
+      // 文本节点
+      if (root instanceof Text) {
+        let t = root.textContent.trim();
+        if (t) {
+          console.log(`text --- ${t}`);
+        }
+      }
+      // 注释节点
+      if (root instanceof Comment) {
+        console.log(`comment --- ${root.textContent.trim()}`);
+      }
+      if (root instanceof HTMLElement) {
+        console.log(`htmlElement --- ${root.nodeName.toLowerCase()}`);
+      }
+    }
+
+    function deepFirstTraverse(root) {
+      // 先申请一个栈空间
+      let stack = [];
+
+      // 把根节点先放进去
+      stack.push(root);
+
+      // 循环栈，
+
+      while (stack.length) {
+        // 取出栈顶元素
+        let top = stack.pop();
+        // 访问栈顶元素
+        visit(top);
+        // 取出子节点， 栈是先进去的后出来，我们要保证树左边的节点先访问，所以要倒着加入子节点
+        let childNodes = top.childNodes;
+        if (childNodes) {
+          for (let i = childNodes.length - 1; i >= 0; i--) {
+            let item = childNodes[i];
+            stack.push(item);
+          }
+        }
+      }
+    }
+
+    deepFirstTraverse(document.getElementById("root"));
+  </script>
+</html>
