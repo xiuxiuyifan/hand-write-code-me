@@ -37,7 +37,11 @@ async function genNewReadmeStr() {
 
 async function start() {
   let sourceContent = await getSourceContent()
-  sourceContent = sourceContent.substring(0, flag.length)
+  console.log(sourceContent.indexOf(flag))
+  let start = ~sourceContent.indexOf(flag) ? sourceContent.indexOf(flag) : 0
+
+  console.log(start)
+  sourceContent = sourceContent.substring(0, start + flag.length)
   let newContent = await genNewReadmeStr()
 
   let finallyContent = `${sourceContent ? sourceContent : flag}\n\n${newContent}`
