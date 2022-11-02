@@ -1,0 +1,10 @@
+{
+  "name": "hand-write-code-me",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "xiuxiuyifan <1575243732@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ./scripts/build.js"
+  }
+}
