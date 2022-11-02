@@ -17,7 +17,7 @@ async function getSourceContent() {
 // 生成新的字符串
 
 async function genNewReadmeStr() {
-  let files = await fs.readdir(path.resolve(__dirname, '../'))
+  let files = await fs.readdir(path.resolve(__dirname, '../src'))
   let extensions = ['.js', '.html']
   files = files.filter((name) => {
     const extension = path.extname(name)
@@ -27,7 +27,7 @@ async function genNewReadmeStr() {
     // 去掉后缀只拿名字
     const lastIndex = name.lastIndexOf('.')
     const filename = name.substring(0, lastIndex)
-    return `[ ${filename} ](${name})`
+    return `[ ${filename} ](./src/${name})`
   }).join('\n\n')
   return newStr
 }
