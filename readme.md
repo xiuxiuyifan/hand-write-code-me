@@ -1,6 +1,6 @@
 ## 食用方法
 
-开箱即用，无需构建。`clone`:zap: 项目到本地，双击即可在浏览器里`run`:running: 起来。如果觉得不错请赏一个`start` :star:
+开箱即用，无需构建。`clone`:zap: 项目到本地，双击`index.html`即可在浏览器里`run`:running: 起来。如果觉得不错请赏一个`start` :star:
 
 ## 前端手写题积累
 
@@ -8,7 +8,7 @@
 
 [ 02 实现一个 getType 获取数据类型 ](./src/02实现一个getType获取数据类型.js)
 
-[ 03new 一个对象的过程 ](./src/03new一个对象的过程.js)
+[ 03 new 一个对象的过程 ](./src/03 new 一个对象的过程.js)
 
 [ 04 深度遍历一个 DOM 树 ](./src/04深度遍历一个DOM树.html)
 
@@ -16,7 +16,7 @@
 
 [ 06 深度遍历 DOM 树，不使用递归 ](./src/06深度遍历DOM树，不使用递归.html)
 
-[ 07lzayMan 实现 sleep 机制 ](./src/07lzayMan实现sleep机制.js)
+[ 07 lzayMan 实现 sleep 机制 ](./src/07 lzayMan 实现 sleep 机制.js)
 
 [ 08 实现一个 curry 函数实现函数柯里化 ](./src/08实现一个curry函数实现函数柯里化.js)
 
@@ -42,8 +42,12 @@
 
 [ 19 迭代器 ](./src/19迭代器.js)
 
-[ 20generate 实现 async 和 await ](./src/20generate实现async和await.js)
+[ 20 generate 实现 async 和 await ](./src/20 generate 实现 async 和 await.js)
 
-[ 21promise 面试题 ](./src/21promise面试题.js)
+[ 21 promise 面试题 ](./src/21 promise 面试题.js)
 
 [ 22 控制并发 ](./src/22控制并发.js)
+
+[ 23 list 转 tree ](./src/23 list 转 tree.js)
+
+[ 24 防抖节流函数 ](./src/24防抖节流函数.html)
